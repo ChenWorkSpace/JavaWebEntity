@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../PublicLib/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<script type="text/javascript" src="../PublicLib/js/jquery-3.1.1.min.js" ></script>
+		<input class="btn btn-group-lg btn-primary" type="button" value="提交" onclick="Ajax()" />
+		<div class="container" id="content">
+			
+			次区域用来展示从服务器端传来的数据...
+		</div>
+		<script>
+			function Ajax(){
+				
+				var xhr=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+				xhr.open('POST',"/ExitApp/RegisterServlet?massage="+"content",true);
+				xhr.send()
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						$("#content").text(xhr.responseText);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
