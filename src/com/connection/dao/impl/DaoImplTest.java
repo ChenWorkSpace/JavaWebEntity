@@ -49,7 +49,9 @@ public class DaoImplTest {
 			e1.printStackTrace();
 		}
 	}
-	 
-	}
+	 System.out.println("Hello World");
+	 System.out.println("ÄãºÃ ÊÀ½ç£¡");
+	 	}
+	
 
 }
