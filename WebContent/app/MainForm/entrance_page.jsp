@@ -9,19 +9,11 @@
 	<link rel="stylesheet" href="css/entrance_page.css" />
 	<script type="text/javascript" src="../PublicLib/js/jquery-3.1.1.min.js" ></script>
     <script type="text/javascript" src="../PublicLib/js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/country.js" ></script>
+	<script type="text/javascript" src="js/entrance_page.js" ></script>
+	
     
-    <script type="text/javascript" src="js/country.js" ></script>
-    <script type="text/javascript" src="js/entrance_page.js" ></script>
     
-    <script>
-				
-            	$(function(){
-            	$("#register_input_province").click(function(){
-            	$("#addr_selecters").modal("show");
-            	  produce_addr();
-            	}) 	
-      })       				    
-	</script>
 		<title>Welcome!</title>
 </head>
 	
@@ -38,27 +30,20 @@
 
 
 </div>
-		
-			<script type="text/javascript" src="../PublicLib/js/jquery-3.1.1.min.js" ></script>
-    <script type="text/javascript" src="../PublicLib/js/bootstrap.min.js" ></script>
-    
-    <script type="text/javascript" src="js/country.js" ></script>
-    <script type="text/javascript" src="js/entrance_page.js" ></script>
+	
     
     <script>
-				
+				$("#register").click(function(){
+					$("#register_input_email").autofocus=true;
+					
+				})
             	$(function(){
             	$("#register_input_province").click(function(){
             	$("#addr_selecters").modal("show");
             	  produce_addr();
             	}) 	
-            	
-            	$(document).ready(function(){
-            		$('#register_alert').hide()
-            	})
       })       				    
 	</script>
-
 <!-- 模态框（Modal） -->
 <form role="form" id="login_form">
 
@@ -159,55 +144,15 @@
 			   </div>								
 			<div class="modal-footer" id="register_bottom" >
 				 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="submit" class="btn btn-primary" formaction="register_checking.jsp" style="position: relative;" >注册</button>
+                <button type="submit" id="reigister"  class="btn btn-primary" formaction="register_checking.jsp" style="position: relative;" >注册</button>
               
 			</div>
 		</div>
 	</div>
 </div>
-<script>
-     function register_email_check(){
-        var checked_sum=false;
-        var checked_sum_2=false;
-     	var input_email=$('#register_input_email').val();
-     	var input_password=$('#register_input_password').val();
-        var input_repassword=$('#register_input_repassword').val();
-        if(input_email.indexOf('@')==-1){
-       	  
-       	    $('#register_email_div').attr('class',"form-group has-error");
-       	  $('#register_input_email').val("");
-       	  $('#register_input_email').attr('placeholder','邮箱格式错误');
-       	 checked_sum=false;
-        }
-        else{
-        	 checked_sum=true;
-        	  $('#register_email_div').attr('class',"form-group has-success");
-        }
-        
-        if(input_password!=input_repassword||!input_password||!input_repassword){
-        	checked_sum_2=false;
-        	$('#register_input_repassword').val("")
-        	if('input_password!=input_repassword'){
-        		$('#register_input_repassword').attr('placeholder','密码输入错误');
-        	}
-        	if(!input_repassword){
-        		$('#register_input_repassword').attr('placeholder','密码输入不为空');
-        	}
-        	$('#register_repassword_div').attr('class','form-group has-error')
-        }
-        else{
-        	checked_sum_2=true;
-        	$('#register_repassword_div').attr('class','form-group has-success')
-        }
-        if(checked_sum==true&&checked_sum_2==true){
-        	return true;
-        }
-        else{
-        	return false;
-        }
-     	
-     }
-</script>
+
+
+
 </form>
 <div class="modal fade  " id='addr_selecters'>  
                     <div class="modal-dialog" style="max-width: 950px;">  
